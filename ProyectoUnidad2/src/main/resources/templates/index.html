@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sistema de Gestión y Firma Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        .main-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            min-width: 200px;
+        }
+        .main-button:hover {
+            background-color: #45a049;
+        }
+        .user-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .logout-button:hover {
+            background-color: #da190b;
+        }
+    </style>
+    <script type="text/javascript">
+        // Prevenir navegación hacia atrás
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+</head>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+    <div class="user-info">
+        <div th:text="${session.nombreCompleto}"></div>
+        <a href="/logout"><button class="logout-button">Cerrar Sesión</button></a>
+    </div>
+
+    <h1>Sistema de Gestión y Firma Digital</h1>
+    
+    <div class="button-container">
+        <a href="/gestion"><button class="main-button">Gestión</button></a>
+        <a href="/firma"><button class="main-button">Firma PDF</button></a>
+    </div>
+</body>
+</html> 
